@@ -115,7 +115,8 @@
 										  <h4 class="panel-title">
 											<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
 											5. Feedback</a>
-										  </h4>
+											<a href="feedback.html" id="feedback-recibido" style="display:none;" class="pull-right"><span>2 Recibidos</span></a>
+										  </h4>									  
 										</div>
 										<div id="collapse5" class="panel-collapse collapse">
 										  <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -129,7 +130,7 @@
 
 					<div class="clear"></div>
 					<div class="center">
-							<a href="test.html" class="button button-rounded si-facebook si-colored">Iniciar</a>
+							<a id="btnIniciar" href="test.html" class="button button-rounded si-facebook si-colored">Iniciar</a>
 					</div>
 				</div>
 
@@ -172,6 +173,16 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript">
+	const url = new URL(window.location.href);
+		const final = url.searchParams.get("final");
+		if (final === "1"){
+			jQuery("#collapse5").addClass("in");
+			jQuery("#feedback-recibido").show();
+			jQuery("#btnIniciar").hide();
+		}
+		
+	</script>
 
 </body>
 </html>
