@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="css/components/bs-switches.css" type="text/css">
+	<link rel="stylesheet" href="css/components/radio-checkbox.css" type="text/css">
+
+	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Document Title
+	============================================= -->
+	<title>Datos</title>
+
+</head>
+
+<body class="stretched">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix">
+				<h1>Datos</h1>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<div class="col_full">
+						<div class="col-md-4">
+							<h4><strong style="color:red;">*</strong> Por favor indiquenos el nombre o alias de su hijo/a</h4>
+							<input id="child-name" name="name" type="text" class="sm-form-control"></textarea>
+							<span id="name-validation" style="display:none;" class="alert alert-warning">Por favor ingrese el nombre</span>
+						</div>
+						<div class="col-md-4">
+						<h4><strong style="color:red;">*</strong> Por favor indiquenos el sexo de su hijo/a</h4>
+										<div>
+											<input id="radio-4" class="radio-style" name="radio-group-1" type="radio" value="M" onclick="selectSex(this.value)" checked="">
+											<label for="radio-4" class="radio-style-1-label">Niño</label>
+										</div>
+										<div>
+											<input id="radio-5" class="radio-style" name="radio-group-1" value="F" onclick="selectSex(this.value)" type="radio">
+											<label for="radio-5" class="radio-style-1-label">Niña</label>
+										</div>
+						</div>
+						<div class="col-md-4">
+								<h4><strong style="color:red;">*</strong> Por favor indiquenos la edad de su hijo/a</h4>
+								<div>
+										<input id="radio-6" class="radio-style" name="radio-group-2" type="radio" value="0" onclick="selectAge(this.value)" disabled>
+										<label for="radio-6" class="radio-style-1-label">0</label>
+									</div>
+									<div>
+										<input id="radio-7" class="radio-style" name="radio-group-2" type="radio" value="1" onclick="selectAge(this.value)" disabled>
+										<label for="radio-7" class="radio-style-1-label">1</label>
+									</div>
+									<div>
+										<input id="radio-8" class="radio-style" name="radio-group-2" type="radio" value="2" onclick="selectAge(this.value)" checked="">
+										<label for="radio-8" class="radio-style-1-label">2</label>
+									</div>
+									<div>
+											<input id="radio-9" class="radio-style" name="radio-group-2" type="radio" value="3" onclick="selectAge(this.value)">
+											<label for="radio-9" class="radio-style-1-label">3</label>
+									</div>
+							</div>
+						
+					</div>
+
+					<div class="clear"></div>
+					<div class="center">
+							<a id="btnContinuar" class="button button-rounded si-facebook si-colored">Continuar</a>
+					</div>
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="dark">
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+
+					<div class="col_half">
+						Prototipo digital 2019
+						<div class="copyright-links"><a href="#">Politica de privacidad</a></div>
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div><!-- #wrapper end -->
+
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/plugins.js"></script>
+	<script type="text/javascript" src="js/components/bs-switches.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript">		
+		const btnCont = jQuery("#btnContinuar");
+		const txtName = jQuery("#child-name");
+		const nameValidation = jQuery("#name-validation");
+		let childSex = "", childAge = "";
+		
+		jQuery(document).ready(function(){
+			jQuery("#radio-4").click();
+			jQuery("#radio-8").click();
+			btnCont.on('click', function() {
+				nameValidation.hide();
+				if (!txtName.val()) {
+					nameValidation.show();
+					return;
+				}
+				window.location.href = `inicio.html?name=${txtName.val()}&sex=${childSex}&age=${childAge}`;
+			})
+		});
+
+		function selectSex(sex) {
+			childSex = sex;
+		}
+
+		function selectAge(age) {
+			childAge = age;
+		}
+		
+	</script>
+
+</body>
+</html>
